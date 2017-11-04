@@ -1,6 +1,6 @@
 import Foundation
 
-public static func createDict(path: String) -> [String: String] {
+public func createDict(path: String) -> [String: String] {
     var morseDict = [String: String]()
     let data = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
     let lines = data.components(separatedBy: CharacterSet.newlines)
@@ -29,7 +29,7 @@ return(morseDict)
 }
 
 
-public static func encode(message: String) -> String {
+public func encode(message: String) -> String {
     let morseDict = createDict(path:"morse_code.txt")
     let message = message.uppercased()
     var result = ""
@@ -46,7 +46,7 @@ return(result)
 }
 
 
-public static func decode(message: String) -> String {
+public func decode(message: String) -> String {
     let morseDict = createDict(path: "morse_code.txt")
     var result = ""
     let letters = message.components(separatedBy: " ")
