@@ -35,7 +35,7 @@ public struct Word {
     }
 }
 
-public extension Word: Equatable, Comparable {
+extension Word: Equatable, Comparable {
     public static func == (lhs: Word, rhs: Word) -> Bool {
         return lhs.score == rhs.score 
     }
@@ -50,7 +50,7 @@ public extension Word: Equatable, Comparable {
     }
 }
 
-public extension Word: CustomStringConvertible {
+extension Word: CustomStringConvertible {
     public var description: String {
         return "Word: \(self.word) Score: \(self.score) Definition:\(self.def)"
     }
