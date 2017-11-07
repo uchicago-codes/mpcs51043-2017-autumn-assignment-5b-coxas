@@ -56,3 +56,25 @@ extension Word: CustomStringConvertible {
     }
     
 }
+
+enum InputError: Error {
+    case invalidInput
+}
+
+public func readLetters(tiles: String) throws -> String {
+    // remove any commas from input
+    var letters = tiles.replacingOccurrences(of:",", with:"")
+    // remove any spaces from input
+    letters = letters.replacingOccurrences(of:" ", with:"")
+    letters = letters.uppercased()
+    // check for letter only input
+    let validInput = "[A-Z]"   
+    let regexLetters = try! NSRegularExpression(pattern: validInput, options: [])
+    let numberMatchesLetters = regexLetters.matches(in: letters, range: NSMakeRange(0, letters.count))
+    if numberMatchesLetters.count == letters.count {
+        return(letters)
+    } 
+    else {
+        throw InputError.invalidInput
+    } 
+}
