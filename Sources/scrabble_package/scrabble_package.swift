@@ -96,3 +96,19 @@ public func getPotentialWords(letters: String) -> [String] {
     }
     return(potentialWords)
 }
+
+public func getRealWords(realWordList: [Word], potentialWords: [String]) {
+    var realWords = [String: Int]()
+    for word in potentialWords {
+        for result in results {
+            if word == String(result.word) {
+                let realWord = String(result.word)
+                let score = result.score
+                realWords[realWord] = score
+            }
+        }
+    }
+    for (k,v) in (Array(realWords).sorted {$1.1 < $0.1}) {
+        print(k,v)
+    }
+}
