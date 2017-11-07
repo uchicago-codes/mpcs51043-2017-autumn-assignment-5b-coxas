@@ -78,3 +78,21 @@ public func readLetters(tiles: String) throws -> String {
         throw InputError.invalidInput
     } 
 }
+
+public func getPotentialWords(tiles: String) -> String {
+    let potentialWords = [String]()
+    for letter in letters {
+        let letter_one = letter
+        for letter in letters {
+            let letter_two = letter 
+            for letter in letters {
+                let letter_three = letter
+                let word = String(letter_one) + String(letter_two) + String(letter_three)
+                if potentialWords.contains(word) == false {
+                    potentialWords.append(word)
+                }
+            }
+        }
+    }
+    return(potentialWords)
+}
