@@ -100,7 +100,7 @@ public func getPotentialWords(letters: String) -> [String] {
 public func getRealWords(realWordList: [Word], potentialWords: [String]) {
     var realWords = [String: Int]()
     for word in potentialWords {
-        for result in results {
+        for result in realWordList {
             if word == String(result.word) {
                 let realWord = String(result.word)
                 let score = result.score
