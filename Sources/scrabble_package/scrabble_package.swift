@@ -79,8 +79,8 @@ public func readLetters(tiles: String) throws -> String {
     } 
 }
 
-public func getPotentialWords(tiles: String) -> String {
-    let potentialWords = [String]()
+public func getPotentialWords(letters: String) -> String {
+    var potentialWords = [String]()
     for letter in letters {
         let letter_one = letter
         for letter in letters {
