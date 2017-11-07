@@ -57,7 +57,7 @@ extension Word: CustomStringConvertible {
     
 }
 
-enum InputError: Error {
+public enum InputError: Error {
     case invalidInput
 }
 
